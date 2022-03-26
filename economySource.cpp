@@ -142,7 +142,8 @@ int main()
             int  *amount  = new int;
             
             scanf("%s", item);
-            if (strcmp(item, "stick") == 0) item_Id = 0;
+            if (strcmp(item, "stick") == 0) *item_Id = 0;
+            
             else if (strcmp(item, "rock") == 0) *item_Id = 1;
             
             else if (strcmp(item, "wood") == 0) *item_Id = 2;
@@ -202,28 +203,156 @@ int main()
                 inventory[0] += *amount;
                 money        -= (*amount) * 4;
                 
-                printf("Buied %d stick(s) -%d\n", *amount, 2 * (*amount));
+                printf("Buied %d stick(s) -%d\n", *amount, 4 * (*amount));
                 break;
+                
               case 1:
+                if (money < 6)
+                {
+                    printf("Not enough money\n");
+                    delete[] item;
+                    delete   amount;
+                    continue;
+                }
                 
+                if (money < (6 * (*amount)))
+                {
+                    printf("Unable to buy colect $%d more to buy it x%d\n", (6 * (*amount)) - money, (*amount));
+                    delete[] item;
+                    delete   amount;
+                    delete   item_Id;
+                    continue;
+                }
+                inventory[1] += *amount;
+                money        -= (*amount) * 6;
+                
+                printf("Buied %d rock(s) -%d\n", *amount, 6 * (*amount));
                 break;
+              
               case 2:
+                if (money < 12)
+                {
+                    printf("Not enough money\n");
+                    delete[] item;
+                    delete   amount;
+                    continue;
+                }
                 
+                if (money < (12 * (*amount)))
+                {
+                    printf("Unable to buy colect $%d more to buy it x%d\n", (12 * (*amount)) - money, (*amount));
+                    delete[] item;
+                    delete   amount;
+                    delete   item_Id;
+                    continue;
+                }
+                inventory[2] += *amount;
+                money        -= (*amount) * 12;
+                
+                printf("Buied %d wood(s) -%d\n", *amount, 12 * (*amount));
                 break;
+              
               case 3:
+                if (money < 18)
+                {
+                    printf("Not enough money\n");
+                    delete[] item;
+                    delete   amount;
+                    continue;
+                }
                 
+                if (money < (18 * (*amount)))
+                {
+                    printf("Unable to buy colect $%d more to buy it x%d\n", (18 * (*amount)) - money, (*amount));
+                    delete[] item;
+                    delete   amount;
+                    delete   item_Id;
+                    continue;
+                }
+                inventory[3] += *amount;
+                money        -= (*amount) * 18;
+                
+                printf("Buied %d Stone(s) -%d\n", *amount, 18 * (*amount));
                 break;
+                    /*
+                    ID |Name    |Price |ID |Name    |Price
+                    1  |Stick   |$4    |2  |Rock    |$6
+                    3  |Wood    |$12   |4  |Stone   |$18
+                    5  |Planks  |$26   |6  |Coal    |$35
+                    7  |Iron    |$56   |8  |Copper  |$78
+                   */
+              
               case 4:
+                if (money < 26)
+                {
+                    printf("Not enough money\n");
+                    delete[] item;
+                    delete   amount;
+                    continue;
+                }
                 
+                if (money < (26 * (*amount)))
+                {
+                    printf("Unable to buy colect $%d more to buy it x%d\n", (26 * (*amount)) - money, (*amount));
+                    delete[] item;
+                    delete   amount;
+                    delete   item_Id;
+                    continue;
+                }
+                inventory[4] += *amount;
+                money        -= (*amount) * 26;
+                
+                printf("Buied %d Planks(s) -%d\n", *amount, 26 * (*amount));
                 break;
+              
               case 5:
+                if (money < 35)
+                {
+                    printf("Not enough money\n");
+                    delete[] item;
+                    delete   amount;
+                    continue;
+                }
                 
+                if (money < (35 * (*amount)))
+                {
+                    printf("Unable to buy colect $%d more to buy it x%d\n", (35 * (*amount)) - money, (*amount));
+                    delete[] item;
+                    delete   amount;
+                    delete   item_Id;
+                    continue;
+                }
+                inventory[5] += *amount;
+                money        -= (*amount) * 35;
+                
+                printf("Buied %d Coal(s) -%d\n", *amount, 35 * (*amount));
                 break;
+              
               case 6:
+                if (money < 28)
+                {
+                    printf("Not enough money\n");
+                    delete[] item;
+                    delete   amount;
+                    continue;
+                }
                 
+                if (money < (28 * (*amount)))
+                {
+                    printf("Unable to buy colect $%d more to buy it x%d\n", (28 * (*amount)) - money, (*amount));
+                    delete[] item;
+                    delete   amount;
+                    delete   item_Id;
+                    continue;
+                }
+                inventory[6] += *amount;
+                money        -= (*amount) * 28;
+                
+                printf("Buied %d Iron(s) -%d\n", *amount, 28 * (*amount));
                 break;
+              
               case 7:
-                if ((*amount) < 1 || money < 4)
+                if ((*amount) < 1 || money < 78)
                 {
                     printf("Empty money or/and amount requests\n");
                     delete[] item;
@@ -231,17 +360,17 @@ int main()
                     continue;
                 }
                 
-                if (money < (4 * (*amount)))
+                if (money < (78 * (*amount)))
                 {
-                    printf("Unable to buy colect $%d more to buy it x%d\n", (4 * (*amount)) - money, (*amount));
+                    printf("Unable to buy colect $%d more to buy it x%d\n", (78 * (*amount)) - money, (*amount));
                     delete[] item;
                     delete   amount;
                     continue;
                 }
-                inventory[0] += *amount;
-                money        -= (*amount) * 4;
+                inventory[7] += *amount;
+                money        -= (*amount) * 78;
                 
-                printf("Buied %d stick(s) -%d\n", *amount, 2 * (*amount));
+                printf("Buied %d Copper(s) -%d\n", *amount, 78 * (*amount));
             }
             
             delete[] item;
