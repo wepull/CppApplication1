@@ -248,14 +248,14 @@ int main()
             int *gain = new int[2];
 
             gain[0] = 1 * lvl + (lvl * lvl);
-            gain[1] = 1 + rand() % (6 + lvl);
+            gain[1] = 1 + rand() % (2 * lvl);
 
             printf(workGainDlg, gain[0], gain[1]);
 
             money += gain[0];
             exp += gain[1];
 
-            if (exp == 7 * (lvl + lvl))
+            if (exp >= 7 * (lvl + lvl))
                 printf(levelUpDlg, ++lvl);
             delete[] gain;
         }
