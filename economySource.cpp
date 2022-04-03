@@ -159,10 +159,6 @@ int modifData(char mode, int *money, int *lvl,
 
 int main()
 {
-    int a = 0;
-    int b = 0;
-    int c = 0;
-    int x = (b + sqrt(pow(b, 2) + (4 * a * b))) / (2 * a);
     bool isInputValid = true;
 
     char *input = new char[16];
