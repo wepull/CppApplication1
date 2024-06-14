@@ -8,7 +8,7 @@
  */
 #ifndef EDLGS_H
 #define EDLGS_H
-
+void buy(const char *item, int *inventory, int *money, int *amount, int *item_Id, int lvl, int price);
 const char *initDlg = "Juegoeconomía; Teclea 'help' para recibir ayuda. Para salir del juego teclea 'exit'.\n";
 const char *emptyCmdDlg = "Incorrecto: Entrada vacia, tecle algo\n";
 const char *doubleSDlg = "Incorrecto: Doble espacio, intente de nuevo\n";
